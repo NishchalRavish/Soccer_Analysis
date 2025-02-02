@@ -1,6 +1,6 @@
 from ultralytics import YOLO
 
-model = YOLO('yolo11m')
+model = YOLO('models/best.pt')
 
 results = model.predict('input_videos/test.mp4',save=True)
 print(results[0]) # 1st frame
