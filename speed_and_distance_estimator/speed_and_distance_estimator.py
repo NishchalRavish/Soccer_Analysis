@@ -31,7 +31,7 @@ class SpeedAndDistance_Estimator():
                         continue
                     
                     distance_covered = measure_distance(start_position, end_position)
-                    time_elapsed = {last_frame  - frame_num}/ self.frame_rate
+                    time_elapsed = (last_frame  - frame_num)/ self.frame_rate
                     speed_meteres_per_second = distance_covered/time_elapsed
                     speed_km_per_hr = speed_meteres_per_second * 3.6
                     
@@ -49,7 +49,7 @@ class SpeedAndDistance_Estimator():
                         tracks[objects][frame_num_batch][track_id]['speed'] = speed_km_per_hr
                         tracks[objects][frame_num_batch][track_id]['distance'] = total_distance[objects][track_id]
     
-    def draw_speed_and_distance(self, video_frames, tracks):
+    def draw_speed_and_distance(self, frames, tracks):
         output_frames = []
         for frame_num, frame in enumerate(frames):
             for objects, object_tracks in tracks.items():
